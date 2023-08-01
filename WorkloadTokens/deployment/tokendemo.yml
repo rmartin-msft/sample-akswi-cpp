@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: token-demo
+  namespace: default
+  labels:
+    azure.workload.identity/use: "true"
+spec:
+  serviceAccountName: workload-identity-sa
+  containers:
+    - image: devstar.azurecr.io/swaptoken:latest
+      name: oidc
+      env:
+      - name: KEYVAULT_URL
+        value: https://kv-akstest237.vault.azure.net/
+      - name: SECRET_NAME
+        value: my-secret
+  nodeSelector:
+    kubernetes.io/os: linux
+  imagePullSecrets:
+    - name: devstar

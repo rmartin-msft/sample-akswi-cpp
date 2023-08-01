@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "swaptoken": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
